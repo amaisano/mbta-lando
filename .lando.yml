@@ -4,12 +4,6 @@ config:
   framework: drupal8
   site: mbta
   id: 72b428fb-f8dd-4053-80a6-d06f5289d043
-  xdebug: true
-  conf:
-    # Tell Lando to use additional PHP settings.
-    # The location of this file is arbitrary.
-    # We placed it inside .vscode/ folder simply because we find it convenient.
-    php: .vscode/php.ini
 tooling:
   pull:
     options:

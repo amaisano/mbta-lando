@@ -1,7 +1,7 @@
 # mbta-lando
 Lando recipe for MBTA Drupal/Pantheon site
 
-1. [Install Lando](https://github.com/lando/lando/releases) -- comes with Docker!
+1. [Install Lando](https://github.com/lando/lando/releases) -- comes with Docker (you can keep your current version -- "Customize" installation and uncheck Docker).
   
 1. Clone the [mbta/cms](https://github.com/mbta/cms) repo on your local machine.
 

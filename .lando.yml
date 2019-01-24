@@ -1,0 +1,34 @@
+name: mbta
+recipe: pantheon
+config:
+  framework: drupal8
+  site: mbta
+  id: 72b428fb-f8dd-4053-80a6-d06f5289d043
+  xdebug: true
+  conf:
+    # Tell Lando to use additional PHP settings.
+    # The location of this file is arbitrary.
+    # We placed it inside .vscode/ folder simply because we find it convenient.
+    php: .vscode/php.ini
+tooling:
+  pull:
+    options:
+      code:
+         default: none
+      database:
+         default: none
+      files:
+         default: live
+      rsync:
+        default: true
+events:
+  post-pull:
+    - appserver: cd $LANDO_WEBROOT && drush sql-sync --create-db --skip-tables-list=cache,cache_* @pantheon.mbta.live @self -y && drush cr
+services:
+  appserver:
+    run_as_root:
+      - "apt-get update -y"
+      - "apt-get install vim -y"
+      - "apt-get install nano -y"
+  pma:
+    type: phpmyadmin
